@@ -1,0 +1,4 @@
+<%  form_for @category, :method => 'POST' do |f| %>
+  name <%= f.text_field :name  %><br>
+  <%= f.submit 'Create' %>
+<% end %>

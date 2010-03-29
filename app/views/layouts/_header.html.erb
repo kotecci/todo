@@ -1,0 +1,14 @@
+<div id="header" >
+  <div class="hleft" style="">
+    <div style="height: 60px; padding: 0.25em; color: white; font-size: 24px; background: #104E8B none repeat scroll 0 0">todo - simple app ;)</div>
+  </div>
+  <div id ="nav">
+    <span><%= link_to_unless_current "Tasks", tasks_path %> | <%= link_to_unless_current "Categories", categories_path %></span>
+    <span class="hright" style="float: right">
+      <% today = Date.today -%>
+      <%= today.wday_name %>, <%= today.day %> <%= Date::MONTHNAMES_GENITIVE[today.month] %> <%= today.year %> |
+      <%#= link_to('Wyloguj', logout_path) %>
+    </span>
+  </div>
+
+</div>

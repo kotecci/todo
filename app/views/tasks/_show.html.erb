@@ -1,0 +1,25 @@
+<div style="border: 1px solid; width: 500px; margin: auto; padding: 15px; ">
+  <div>
+    <span class="name">name:</span>
+    <span style="width: 100px; "><%= @task.name  %></span>
+  </div>
+  <div>
+    <span class="name">category:</span>
+    <span style="width: 100px; "><%= @task.category.nil? ? '-' : @task.category.name %></span>
+  </div>
+
+  <div style="margin-bottom: 50px; ">
+    <span class="name">description:</span>
+    <span style="float: left;width: 500px; overflow: auto; white-space:pre-line"><%= @task.description  %></span>
+  </div>
+  <div>
+    <span class="name">till:</span>
+    <span style="width: 100px; "><%= @task.till.strftime('%d.%m.%Y') %></span>
+  </div>
+  <div>
+    <span class="name">created_at:</span>
+    <span style="width: 100px; "><%= @task.created_at.strftime('%d.%m.%Y, %H:%M:%S') %></span>
+  </div>
+</div>
+
+

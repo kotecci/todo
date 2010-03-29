@@ -1,0 +1,26 @@
+<div style="border: 1px solid; width: 500px; margin: auto; padding: 15px;">
+  <% remote_form_for @task, :method => 'PUT', :update =>'content' do |f| %>
+    <div>
+      <span style="float: left; width: 100px">name:</span>
+      <span style="width: 100px; "><%= f.text_field :name  %></span>
+    </div>
+    <div style="margin-top: 15px; margin-bottom: 15px;">
+      <span style="width: 100px">description:</span>
+      <span style="width: 100px"><%= f.text_area :description, :rows => 5  %></span>
+    </div>
+    <div>
+      <span style="float: left; width: 100px; ">category</span>
+      <span>
+        <%= f.select :category_id, options_from_collection_for_select(@categories, :id, :name, :category_id) %>
+      </span>
+      <div>
+        <span style="float: left; width: 100px; ">Till</span>
+        <span>
+          <%= f.date_select :till %>
+        </span>
+      </div>
+      <div style="margin-top: 10px; "><%= f.submit 'Update', :style=>'' %></div>
+    </div>
+
+  <% end %>
+</div>

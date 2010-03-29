@@ -1,0 +1,23 @@
+<%= link_to("New category", :action => 'new') %>
+<%= @categories%>
+<% if @categories.size > 0  %>
+<table id="categories_table">
+  <tbody>
+    <tr>
+      <th>No</th>
+      <th>Category</th>
+    </tr>
+    <% @categories.each_with_index do |category, idx| %>
+    <tr id=<%= "category_#{category.id}" %>>
+      <td><%= idx + 1 %></td>
+      <td><%= category.name %></td>
+      <td><%= link_to_remote(image_tag("/images/delete.png", :size => "17x17", :border => 0),
+                :url => category_url(category.id), :method => 'DELETE', :confirm => "Are You sure to delete this category(#{category.name})?",
+                :before => "delete_task('category_#{category.id}')") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+<% else %>
+  <center><b>There are no categories. Use 'New category' link to add data.</b></center>
+<% end %>

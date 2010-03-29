@@ -1,0 +1,743 @@
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#new (for 127.0.0.1 at 2010-03-28 14:12:39) [GET]
+  Parameters: {"authenticity_token"=>"jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY="}
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendered tasks/_new (17.7ms)
+Completed in 111ms (View: 19, DB: 1) | 200 OK [http://localhost/tasks/new?authenticity_token=jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY%3D]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#create (for 127.0.0.1 at 2010-03-28 14:12:44) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY=", "task"=>{"till(3i)"=>"28", "name"=>"aaaaaaaaa", "category_id"=>"5", "till(1i)"=>"2010", "description"=>"asdsad", "till(2i)"=>"3"}}
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "tasks" ("name", "till", "created_at", "priority_id", "updated_at", "done", "user_id", "category_id", "description") VALUES(E'aaaaaaaaa', '2010-03-28', '2010-03-28 12:12:44.213232', NULL, '2010-03-28 12:12:44.213232', NULL, NULL, 5, E'asdsad') RETURNING "id"[0m
+  [4;36;1mSQL (42.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering tasks/index
+  [4;36;1mCategory Load (1.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Completed in 112ms (View: 37, DB: 48) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (18.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (9.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#destroy (for 127.0.0.1 at 2010-03-28 14:12:47) [DELETE]
+  Parameters: {"authenticity_token"=>"jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY=", "id"=>"34"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'34') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mTask Destroy (2.7ms)[0m   [0;1mDELETE FROM "tasks" WHERE "id" = 34[0m
+  [4;35;1mSQL (13.0ms)[0m   [0mCOMMIT[0m
+Completed in 35ms (View: 1, DB: 46) | 200 OK [http://localhost/tasks/34]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-28 14:12:50) [GET]
+  Parameters: {"id"=>"33"}
+  [4;36;1mTask Load (1.3ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'33') LIMIT 1[0m
+  [4;35;1mCategory Load (0.9ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Rendered tasks/_show (15.1ms)
+Completed in 36ms (View: 19, DB: 3) | 200 OK [http://localhost/tasks/33]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-28 14:43:33) [GET]
+  [4;36;1mTask Load (1.8ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Rendered layouts/_header (1.7ms)
+Completed in 96ms (View: 64, DB: 30) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#edit (for 127.0.0.1 at 2010-03-28 14:43:38) [GET]
+  Parameters: {"authenticity_token"=>"jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY=", "id"=>"39"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'39') LIMIT 1[0m
+  [4;35;1mCategory Load (3.9ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendered tasks/_edit (18.4ms)
+Completed in 45ms (View: 23, DB: 5) | 200 OK [http://localhost/tasks/39/edit?authenticity_token=jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY%3D]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-28 14:44:00) [GET]
+  [4;36;1mTask Load (1.8ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Rendered layouts/_header (0.9ms)
+Completed in 131ms (View: 38, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-28 14:44:04) [GET]
+  Parameters: {"id"=>"39"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'39') LIMIT 1[0m
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Rendered tasks/_show (12.7ms)
+Completed in 28ms (View: 13, DB: 2) | 200 OK [http://localhost/tasks/39]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#destroy (for 127.0.0.1 at 2010-03-28 14:44:07) [DELETE]
+  Parameters: {"authenticity_token"=>"jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY=", "id"=>"39"}
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'39') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mTask Destroy (2.8ms)[0m   [0;1mDELETE FROM "tasks" WHERE "id" = 39[0m
+  [4;35;1mSQL (35.3ms)[0m   [0mCOMMIT[0m
+Completed in 78ms (View: 1, DB: 40) | 200 OK [http://localhost/tasks/39]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#new (for 127.0.0.1 at 2010-03-28 14:44:08) [GET]
+  Parameters: {"authenticity_token"=>"jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY="}
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendered tasks/_new (91.0ms)
+Completed in 111ms (View: 92, DB: 1) | 200 OK [http://localhost/tasks/new?authenticity_token=jWgDpXLYNX7MqlzUMzdqtq6M8gcxAmRPxjm9DwWpvRY%3D]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:28:57) [GET]
+  [4;36;1mTask Load (146.2ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (9.1ms)
+Completed in 427ms (View: 218, DB: 147) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:29:03) [GET]
+  [4;35;1mTask Load (2.1ms)[0m   [0mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 18ms (View: 7, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#new (for 127.0.0.1 at 2010-03-29 19:29:12) [GET]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU="}
+  [4;36;1mCategory Load (8.1ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendered tasks/_new (204.7ms)
+Completed in 492ms (View: 210, DB: 9) | 200 OK [http://localhost/tasks/new?authenticity_token=wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU%3D]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#create (for 127.0.0.1 at 2010-03-29 19:29:19) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "task"=>{"till(3i)"=>"29", "name"=>"aaa", "category_id"=>"5", "till(1i)"=>"2010", "description"=>"aa", "till(2i)"=>"3"}}
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (52.6ms)[0m   [0;1mINSERT INTO "tasks" ("name", "till", "created_at", "priority_id", "updated_at", "done", "user_id", "category_id", "description") VALUES(E'aaa', '2010-03-29', '2010-03-29 17:29:19.517336', NULL, '2010-03-29 17:29:19.517336', NULL, NULL, 5, E'aa') RETURNING "id"[0m
+  [4;35;1mSQL (22.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+Rendering tasks/index
+  [4;35;1mCategory Load (14.4ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Completed in 205ms (View: 54, DB: 92) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#edit (for 127.0.0.1 at 2010-03-29 19:29:23) [GET]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"42"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'42') LIMIT 1[0m
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendered tasks/_edit (50.9ms)
+Completed in 144ms (View: 126, DB: 2) | 200 OK [http://localhost/tasks/42/edit?authenticity_token=wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU%3D]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#update (for 127.0.0.1 at 2010-03-29 19:29:25) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"42", "task"=>{"till(3i)"=>"29", "name"=>"aaa", "category_id"=>"5", "till(1i)"=>"2010", "description"=>"aa", "till(2i)"=>"3"}}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'42') LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTask Load (0.5ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering tasks/index
+  [4;36;1mCategory Load (1.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Completed in 40ms (View: 17, DB: 5) | 200 OK [http://localhost/tasks/42]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:29:27) [GET]
+  Parameters: {"id"=>"42"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'42') LIMIT 1[0m
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Rendered tasks/_show (21.0ms)
+Completed in 46ms (View: 25, DB: 2) | 200 OK [http://localhost/tasks/42]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:29:30) [GET]
+  Parameters: {"id"=>"42"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'42') LIMIT 1[0m
+  [4;36;1mCategory Load (1.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Rendered tasks/_show (12.5ms)
+Completed in 28ms (View: 12, DB: 3) | 200 OK [http://localhost/tasks/42]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:29:32) [GET]
+  Parameters: {"id"=>"42"}
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'42') LIMIT 1[0m
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 5) [0m
+Rendered tasks/_show (13.5ms)
+Completed in 30ms (View: 14, DB: 3) | 200 OK [http://localhost/tasks/42]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#destroy (for 127.0.0.1 at 2010-03-29 19:29:34) [DELETE]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"42"}
+  [4;35;1mTask Load (1.3ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'42') LIMIT 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTask Destroy (0.6ms)[0m   [0mDELETE FROM "tasks" WHERE "id" = 42[0m
+  [4;36;1mSQL (29.1ms)[0m   [0;1mCOMMIT[0m
+Completed in 47ms (View: 1, DB: 32) | 200 OK [http://localhost/tasks/42]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 19:29:37) [GET]
+  [4;35;1mCategory Load (2.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (1.2ms)
+Completed in 68ms (View: 59, DB: 3) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#destroy (for 127.0.0.1 at 2010-03-29 19:29:41) [DELETE]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"5"}
+  [4;36;1mCategory Load (1.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = E'5') LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Destroy (0.7ms)[0m   [0;1mDELETE FROM "categories" WHERE "id" = 5[0m
+  [4;35;1mSQL (18.7ms)[0m   [0mCOMMIT[0m
+Completed in 35ms (View: 1, DB: 21) | 200 OK [http://localhost/categories/5]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:29:43) [GET]
+  [4;36;1mTask Load (14.5ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (1.0ms)
+Completed in 32ms (View: 8, DB: 15) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#new (for 127.0.0.1 at 2010-03-29 19:29:44) [GET]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU="}
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendered tasks/_new (14.2ms)
+Completed in 35ms (View: 17, DB: 1) | 200 OK [http://localhost/tasks/new?authenticity_token=wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU%3D]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#create (for 127.0.0.1 at 2010-03-29 19:29:49) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "task"=>{"till(3i)"=>"29", "name"=>"aa", "till(1i)"=>"2010", "description"=>"aaa", "till(2i)"=>"3"}}
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO "tasks" ("name", "till", "created_at", "priority_id", "updated_at", "done", "user_id", "category_id", "description") VALUES(E'aa', '2010-03-29', '2010-03-29 17:29:49.336671', NULL, '2010-03-29 17:29:49.336671', NULL, NULL, NULL, E'aaa') RETURNING "id"[0m
+  [4;36;1mSQL (13.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering tasks/index
+Completed in 55ms (View: 17, DB: 16) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:29:50) [GET]
+  [4;36;1mTask Load (1.8ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 28ms (View: 19, DB: 2) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:29:51) [GET]
+  [4;35;1mTask Load (1.8ms)[0m   [0mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 31ms (View: 21, DB: 2) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:29:53) [GET]
+  Parameters: {"id"=>"43"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #8 of app/views/tasks/_show.html.erb:
+5:   </div>
+6:   <div>
+7:     <span class="name">category:</span>
+8:     <span style="width: 100px; "><%= @task.category.name %></span>
+9:   </div>
+10: 
+11:   <div style="margin-bottom: 50px; ">
+
+    app/views/tasks/_show.html.erb:8
+    app/controllers/tasks_controller.rb:9:in `show'
+
+Rendered rescues/_trace (131.0ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:16) [GET]
+  Parameters: {"id"=>"43"}
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (4.7ms)
+Completed in 26ms (View: 11, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#edit (for 127.0.0.1 at 2010-03-29 19:31:18) [GET]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"43"}
+  [4;36;1mTask Load (1.3ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendered tasks/_edit (14.6ms)
+Completed in 36ms (View: 16, DB: 3) | 200 OK [http://localhost/tasks/43/edit?authenticity_token=wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU%3D]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#update (for 127.0.0.1 at 2010-03-29 19:31:22) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"43", "task"=>{"till(3i)"=>"29", "name"=>"aa", "till(1i)"=>"2010", "description"=>"aaa", "till(2i)"=>"3"}}
+  [4;36;1mTask Load (1.2ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTask Load (0.5ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering tasks/index
+Completed in 31ms (View: 9, DB: 3) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:24) [GET]
+  Parameters: {"id"=>"43"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (4.1ms)
+Completed in 21ms (View: 6, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:26) [GET]
+  Parameters: {"id"=>"43"}
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (3.9ms)
+Completed in 21ms (View: 5, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:31:28) [GET]
+  [4;36;1mTask Load (1.9ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.6ms)
+Completed in 34ms (View: 24, DB: 2) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:29) [GET]
+  Parameters: {"id"=>"43"}
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (3.0ms)
+Completed in 17ms (View: 4, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:31) [GET]
+  Parameters: {"id"=>"43"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (4.0ms)
+Completed in 21ms (View: 5, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 19:31:33) [GET]
+  [4;35;1mCategory Load (1.3ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.7ms)
+Completed in 14ms (View: 6, DB: 2) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:31:34) [GET]
+  [4;36;1mTask Load (1.8ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 32ms (View: 21, DB: 2) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:37) [GET]
+  Parameters: {"id"=>"43"}
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (3.2ms)
+Completed in 18ms (View: 4, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:40) [GET]
+  Parameters: {"id"=>"43"}
+  [4;36;1mTask Load (4.6ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (4.0ms)
+Completed in 111ms (View: 6, DB: 5) | 200 OK [http://localhost/tasks/43]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#edit (for 127.0.0.1 at 2010-03-29 19:31:42) [GET]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"43"}
+  [4;35;1mTask Load (1.2ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendered tasks/_edit (14.9ms)
+Completed in 37ms (View: 16, DB: 2) | 200 OK [http://localhost/tasks/43/edit?authenticity_token=wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU%3D]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#update (for 127.0.0.1 at 2010-03-29 19:31:46) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"43", "task"=>{"till(3i)"=>"29", "name"=>"aa", "till(1i)"=>"2010", "description"=>"aaa", "till(2i)"=>"5"}}
+  [4;35;1mTask Load (1.2ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTask Update (1.0ms)[0m   [0mUPDATE "tasks" SET "updated_at" = '2010-03-29 17:31:46.183333', "till" = '2010-05-29' WHERE "id" = 43[0m
+  [4;36;1mSQL (28.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTask Load (0.7ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering tasks/index
+Completed in 71ms (View: 15, DB: 33) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:48) [GET]
+  Parameters: {"id"=>"43"}
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (3.4ms)
+Completed in 18ms (View: 5, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:50) [GET]
+  Parameters: {"id"=>"43"}
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (3.8ms)
+Completed in 95ms (View: 5, DB: 2) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#show (for 127.0.0.1 at 2010-03-29 19:31:51) [GET]
+  Parameters: {"id"=>"43"}
+  [4;36;1mTask Load (9.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+Rendered tasks/_show (4.5ms)
+Completed in 33ms (View: 6, DB: 15) | 200 OK [http://localhost/tasks/43]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#new (for 127.0.0.1 at 2010-03-29 19:31:53) [GET]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU="}
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendered tasks/_new (21.3ms)
+Completed in 57ms (View: 23, DB: 1) | 200 OK [http://localhost/tasks/new?authenticity_token=wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU%3D]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#create (for 127.0.0.1 at 2010-03-29 19:31:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "task"=>{"till(3i)"=>"29", "name"=>"a", "till(1i)"=>"2010", "description"=>"a", "till(2i)"=>"3"}}
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "tasks" ("name", "till", "created_at", "priority_id", "updated_at", "done", "user_id", "category_id", "description") VALUES(E'a', '2010-03-29', '2010-03-29 17:31:58.238112', NULL, '2010-03-29 17:31:58.238112', NULL, NULL, NULL, E'a') RETURNING "id"[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTask Load (0.7ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering tasks/index
+Completed in 61ms (View: 17, DB: 16) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#destroy (for 127.0.0.1 at 2010-03-29 19:32:02) [DELETE]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"43"}
+  [4;36;1mTask Load (1.3ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'43') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mTask Destroy (0.7ms)[0m   [0;1mDELETE FROM "tasks" WHERE "id" = 43[0m
+  [4;35;1mSQL (22.4ms)[0m   [0mCOMMIT[0m
+Completed in 124ms (View: 1, DB: 26) | 200 OK [http://localhost/tasks/43]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:32:04) [GET]
+  [4;36;1mTask Load (2.0ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 30ms (View: 20, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#destroy (for 127.0.0.1 at 2010-03-29 19:32:07) [DELETE]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU=", "id"=>"44"}
+  [4;35;1mTask Load (1.1ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = E'44') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTask Destroy (0.6ms)[0m   [0mDELETE FROM "tasks" WHERE "id" = 44[0m
+  [4;36;1mSQL (19.3ms)[0m   [0;1mCOMMIT[0m
+Completed in 36ms (View: 1, DB: 22) | 200 OK [http://localhost/tasks/44]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:32:09) [GET]
+  [4;35;1mTask Load (2.2ms)[0m   [0mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 19ms (View: 9, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 19:42:57) [GET]
+  [4;36;1mCategory Load (1.5ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (2.2ms)
+Completed in 64ms (View: 45, DB: 2) | 200 OK [http://localhost/categories]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 19:43:28) [GET]
+  [4;35;1mCategory Load (1.3ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.7ms)
+Completed in 19ms (View: 11, DB: 2) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:43:32) [GET]
+  [4;36;1mTask Load (1.8ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.8ms)
+Completed in 30ms (View: 17, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 19:43:34) [GET]
+  [4;35;1mCategory Load (1.3ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.7ms)
+Completed in 14ms (View: 5, DB: 2) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:43:36) [GET]
+  [4;36;1mTask Load (3.2ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 17ms (View: 7, DB: 7) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 19:43:39) [GET]
+  [4;35;1mCategory Load (1.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.9ms)
+Completed in 14ms (View: 6, DB: 2) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2010-03-29 19:43:41) [GET]
+Rendering template within layouts/application
+Rendering categories/new
+Rendered layouts/_header (0.9ms)
+Completed in 184ms (View: 131, DB: 1) | 200 OK [http://localhost/categories/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 19:43:43) [GET]
+  [4;36;1mTask Load (2.3ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (4.8ms)
+Completed in 22ms (View: 11, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#new (for 127.0.0.1 at 2010-03-29 19:43:45) [GET]
+  Parameters: {"authenticity_token"=>"wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU="}
+  [4;35;1mCategory Load (0.9ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendered tasks/_new (116.6ms)
+Completed in 147ms (View: 122, DB: 1) | 200 OK [http://localhost/tasks/new?authenticity_token=wYZYJ2LXo6WgeMFTBIyVAOvimpAt9nHGx3550f8aNmU%3D]
+  [4;36;1mSQL (12.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 20:06:13) [GET]
+  [4;36;1mTask Load (136.4ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (12.7ms)
+Completed in 385ms (View: 184, DB: 149) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 20:06:16) [GET]
+  [4;35;1mCategory Load (18.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.7ms)
+Completed in 86ms (View: 24, DB: 19) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 20:06:19) [GET]
+  [4;36;1mTask Load (1.7ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.8ms)
+Completed in 21ms (View: 8, DB: 2) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 20:06:20) [GET]
+  [4;35;1mCategory Load (1.2ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.7ms)
+Completed in 14ms (View: 5, DB: 2) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 20:06:21) [GET]
+  [4;36;1mTask Load (1.9ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.8ms)
+Completed in 16ms (View: 7, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 20:06:22) [GET]
+  [4;35;1mCategory Load (1.5ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.7ms)
+Completed in 14ms (View: 6, DB: 2) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 20:06:23) [GET]
+  [4;36;1mTask Load (2.1ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 16ms (View: 7, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 20:06:25) [GET]
+  [4;35;1mCategory Load (2.9ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (2.7ms)
+Completed in 19ms (View: 8, DB: 4) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 20:06:25) [GET]
+  [4;36;1mTask Load (1.8ms)[0m   [0;1mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.8ms)
+Completed in 21ms (View: 7, DB: 3) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 20:23:26) [GET]
+  [4;36;1mCategory Load (1.3ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (1.7ms)
+Completed in 56ms (View: 39, DB: 2) | 200 OK [http://localhost/categories]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-03-29 20:23:28) [GET]
+  [4;35;1mTask Load (1.8ms)[0m   [0mSELECT * FROM "tasks" ORDER BY till[0m
+Rendering template within layouts/application
+Rendering tasks/index
+Rendered layouts/_header (0.7ms)
+Completed in 32ms (View: 19, DB: 2) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-29 20:23:31) [GET]
+  [4;36;1mCategory Load (1.4ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Rendered layouts/_header (0.8ms)
+Completed in 78ms (View: 6, DB: 2) | 200 OK [http://localhost/categories]

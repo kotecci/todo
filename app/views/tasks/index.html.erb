@@ -1,0 +1,42 @@
+<div style="margin-left: 15px;">
+  <%= link_to_remote("New task", :method => 'get', :update => 'active_task', :url => new_task_url) %>
+</div>
+<% if @tasks.size > 0 %>
+
+  <div id="tasks">
+    <table id="tasks_table">
+      <tbody>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Till</th>
+          <th>Created at</th>
+          <th>Popup</th>
+          <th></th>
+          <th class="delete_header"></th>
+        </tr>
+        <% @tasks.each_with_index do |task, idx| %>
+          <tr id=<%= "task_#{task.id}" %>  >
+            <td title ="Click to show task" onclick=<%= "show_task(#{task.id})"  %>><%= idx + 1 %></td>
+            <td title ="Click to show task" onclick=<%= "show_task(#{task.id})"  %>><%= task.name.nil? ? '-' : task.name %></td>
+            <td title ="Click to show task" onclick=<%= "show_task(#{task.id})"  %>><%= task.description[0,24] %></td>
+            <td title ="Click to show task" onclick=<%= "show_task(#{task.id})"  %>><%= task.category.nil? ? '-' : task.category.name %></td>
+            <td title ="Click to show task" onclick=<%= "show_task(#{task.id})"  %>><%= task.till.strftime('%d.%m.%Y')  %></td>
+            <td title ="Click to show task" onclick=<%= "show_task(#{task.id})"  %>><%= task.created_at.strftime('%d.%m.%Y, %H:%M:%S') %></td>
+            <td><%= link_to "Show", task_url(task), :popup => ['new_window_name', 'height=300,width=600'] %></td>
+            <td><%= link_to_remote(image_tag("/images/edit.png", :size => "17x17", :border => 0), :method => 'get', :update => 'active_task',
+              :url => edit_task_url(task.id)) %></td>
+            <td><%= link_to_remote(image_tag("/images/delete.png", :size => "17x17", :border => 0),
+                :url => task_url(task.id), :method => 'DELETE', :confirm => "Are You sure to delete this task(#{task.name})?",
+                :before => "delete_task('task_#{task.id}'); $j('#active_task').empty(); ") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+ <%  else %>
+<center><b>There are no tasks. Use 'New task' link to add data.</b></center>
+<% end %>
+<div id="active_task" ></div>

@@ -1,0 +1,17 @@
+<%= render :partial => 'layouts/html_head' %>
+<%= yield %>
+
+<% unless flash[:error].blank? -%>
+<table width="405", align="center"><tr><td>
+  <br />
+  <div id="error" style="margin: 0px auto; text-align: center"><%= flash[:error] %></div>
+</td></tr></table>
+<% end -%>
+
+<% unless flash[:notice].blank? -%>
+<table width="405", align="center"><tr><td>
+  <br />
+  <div id="notice" style="margin: 0px auto; text-align: center"><%= flash[:notice] %></div>
+</td></tr></table>
+<% end -%>
+

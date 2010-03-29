@@ -1,0 +1,140 @@
+/* 
+    Document   : main
+    Created on : Mar 27, 2010, 5:30:15 PM
+    Author     : Piotr Kurpa
+    Description:
+        Stylesheet for TODO application
+*/
+
+body {
+  color: #444444;
+  font-family: verdana,arial,helvetica,sans-serif;
+  background: gray none repeat scroll 0 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: helvetica,verdana,arial,'Bitstream Vera Sans',sans-serif;
+  font-weight: bold;
+  font-size: 1.0em;
+  margin: 0.15em 1em 0 0;
+}
+
+td {
+  font-size: 12px;
+  line-height: 19px;
+}
+
+input[type=text], input[type=password], textarea {
+  border: 1px solid #ddd;
+}
+
+input[type=text], input[type=password], textarea {
+  padding: .25em .5em
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus, textarea:focus {
+  border: 1px solid #886;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background: #ccb;
+}
+
+input[type=button][disabled], input[type=submit][disabled],
+input[type=reset][disabled] {
+  background: #f6f6f6;
+  border-style: solid;
+  color: #999;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background: #eee;
+  color: #222;
+  border: 1px outset #ccc;
+  padding: .1em .5em;
+}
+
+#error {
+  font-size: 11px;
+  background-color: #FCC;
+  border: solid 1px #C66;
+  padding: 5px 8px;
+  margin-top: 10px;
+}
+
+label {
+  font-size: 12px;
+  color: #444444;
+  margin-right: 15px;
+}
+
+/*Layout*/
+
+#main {
+  border: 1px solid;
+  position: relative;
+  width: 50em;
+  position: relative;
+  margin: auto;
+}
+
+#header {
+
+
+}
+
+#header .hright {
+  font-weight: normal;
+}
+
+#nav {
+  background: #CCCCCC none repeat scroll 0 0;
+  color: black;
+  font-weight: bold;
+  padding: 0.3em;
+
+}
+
+#content {
+  background: white none repeat scroll 0 0;
+  position: relative;
+  width: 50em;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#tasks_table, #categories_table {
+
+  margin: auto;
+  
+  width: 600px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#tasks_table td {
+
+}
+
+#tasks_table, #categories_table th {
+  font-size: 12px;
+  text-align: left;
+}
+
+#tasks_table th.delete_header { background-color: transparent; }
+
+#tasks_table tr:hover td {
+  background: #D0DAFD none repeat scroll 0 0;
+  color: #333399;
+  cursor: pointer;
+}
+
+#active_task {
+  margin-left: 20px;
+}
+
+.name {
+  float: left; width: 100px; font-weight: bold;
+  padding-right: 10px;
+}
